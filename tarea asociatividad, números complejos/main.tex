@@ -1,0 +1,204 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Matematicas discretas II  tarea 1}
+\author{Esteban Rodriguez Muñoz }
+\date{11 Febrero 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Asociatividad de la multiplicacion}
+En el primer punto se plantea en una tabla de cayley, las respectivas operaciones de multiplicacion entre  los terminos A,B,C,D. Nos disponemos a resolver si se cumple la asociatividad en este ejemplo.
+
+\medskip
+\centering
+\noindent\begin{tabular}{ c| c c c c}
+     * & A & B & C & D  \\
+    \cline{1-5}
+    A & A & B & C & D  \\
+    B & C & D & D & D  \\
+    C & A & B & C & D  \\
+    D & D & A & C & B  \\
+    
+\end{tabular}
+
+
+
+\bigskip
+La asociatividad nos indica que el modo de ordenar los factores no altera el producto. Una operacion definida en el conjunto M es asociativa si para todo w,x,y,z:
+\medskip
+
+\centering (x X y) X z = x X (y X z )
+\bigskip
+
+Normalmente se tendrian que realizar hasta 16 operaciones para la demostracion de una tabla de 4x4 de igualdades y verificar si existe alguna que no cumpla pero si observamos la tabla podemos observar en la segunda fila que las operaciones de B dan hasta 3 resultados D,podemos sospechar algunas operaciones que no cumpliran el  criterio de asociatividad, por ejemplo:
+\medskip
+
+\centering (B X C) X A = B X (C X A )
+
+\bigskip
+
+\centering (D) X A = B X (A)
+\bigskip
+{%
+\centering D \neq C
+\par 
+}
+\bigskip
+
+\centering No se cumple la asociatividad.
+
+
+\section{Asociatividad en la multiplicacion de matrices nxn }
+Consideremos tres matrices cuadradas
+
+\[
+  A_{2\times 2} =
+  \left[ {\begin{array}{cc}
+    a & b \\
+    c & d  \\
+  
+  \end{array} } \right]
+\]
+\[
+  B_{2\times 2} =
+  \left[ {\begin{array}{cc}
+    e & f  \\
+    g & h  \\
+   
+  \end{array} } \right]
+\]
+\[
+  C_{2\times 2} =
+  \left[ {\begin{array}{cc}
+    i & j  \\
+    k & l  \\
+    
+  \end{array} } \right]
+\]
+
+probaremos (AXB)XC
+\[
+  (AXB)XC_{2\times 2} =
+  \left[ {\begin{array}{cc}
+    (ae+bg)i+(af+bh)k & (ae+bg)j+(af+bh)l\\
+    (ce+dg)i+(cf+dh)k & (ae+bg)j+(af+bh)l  \\
+  
+  \end{array} } \right]
+\]
+
+\[
+  (AXB)XC_{2\times 2} =
+  \left[ {\begin{array}{cc}
+    aei+bgi+afj+bhk & aej+bgj+afl+bhl\\
+    cei+dgi+cfj+dhk & aej+bgj+afl+bhl  \\
+  
+  \end{array} } \right]
+\]
+
+Ahora necesitamos hallar el resultado de AX(BXC) y compararlos para saber si es asociativa
+\[
+  (BXC)_{2\times 2} =
+  \left[ {\begin{array}{cc}
+    ei + fj & ej + fl \\
+    gi + hk & gj + hl  \\
+  
+  \end{array} } \right]
+\]
+
+\[
+  AX(BXC)_{2\times 2} =
+  \left[ {\begin{array}{cc}
+    (ei + fj)a + (gi + hk)b & (ej + fl)a +(gj + hl)b\\
+    (ei + fj)c + (gi + hk)d & (ej + fl)c +(gj + hl)d\\
+  
+  \end{array} } \right]
+\]
+
+\[
+AX(BXC)_{2\times 2} =
+  \left[ {\begin{array}{cc}
+    eia + fja + gib + hkb & eja + fla +gjb + hlb\\
+    eic + fjc + gid + hkd & ejc + flc +gjd+ hld\\
+  
+  \end{array} } \right]
+\]
+
+Se conoce que existe la asociatividad entre numeros reales y cada uno de los componentes de la matriz son del mismo tipo real, al comparar eia y aei no hay diferencia entre ambos por lo que si cada uno de los terminos son iguales solo con orden diferente, son el mismo numero por lo que se cumple la condicion y se demuestra que si es asociativa.
+
+
+\section{¿Los numeros complejos son grupo?}
+\begin{flushleft}Supongamos 3 numeros complejos:\end{flushleft}
+
+
+{%
+\centering A= a+bi ; B=c+di  ; C= e+fi
+\par
+}
+
+\begin{flushleft}Ahora haremos la multiplicacion (AXB)XC\end{flushleft}
+
+{%
+\centering (a+bi X c + di)(e+fi)
+
+{(ac - bd) +i(ad + cb)}(e + fi)
+
+{(ac - bd)e - (ad + cb)f} + i{(ac - bd)f} + (ad + cb)e)
+
+{a(ce - df) - b(cf + ed)} + i{b(ce - df)} + a(ed + cf)
+
+(a + ib){(cf - df) + i(cf + ed)}
+
+A(BXC)
+\par
+}
+
+\begin{flushleft}Comprobaremos el resultado de  AX(BXC) y lo compararemos con el anterior\end{flushleft}
+
+{%
+\centering a+bi X (c + di)(e+fi))
+
+{(ec - fd) +i(ed + cf)}(a + bi)
+
+{(ec - fd)a - (ed + cf)b} + i{(ec - fd)b} + (ed + cf)a)
+
+{e(ca - db) - f(cb + ad)} + i{f(ca - db)} + e(ad + cb)
+
+(e + fi){(cb - db) + i(cb + ad)
+
+C(AXB)
+
+\par
+}
+
+Ambos caminos son dan una igualdad a la otra operacion por lo que ambas operaciones dan el mismo resultado y se demuestra la asociatividad.
+
+Ahora es necesario comprobar si existe un elemento nulo que al multiplicarlo con un numero complejo cualquiera, este no cambie. entonces:
+{%
+\centering
+\left(a+bi\right)\left(c+di\right)=\left(ac-bd\right)+\left(ad+bc\right)i
+\par
+}
+ 
+
+
+
+\begin{flushleft}Teniendo en cuenta que i representa \sqrt{-1}.\end{flushleft}
+
+\begin{flushleft}sabemos que al multiplicar las dos partes imaginarias dara un -1 que impediria volver a llegar al primer termino.\end{flushleft}
+
+\begin{flushleft}Entonces el elemento neutro en la multiplicacion de numeros complejos es simplemente 1 +0i, ya que solo multiplica su parte real.\end{flushleft}
+
+\forall A \in C  ; \exist  e\in C    tal que  A*e=A ; A=1+0i (elemento  neutro)
+
+\begin{flushleft}Ahora para determinar finalmente si es grupo, necesitamos encontrar un numero que sea su inverso.\end{flushleft}
+
+\forall A \in C  ; \exist  B\in C    tal que  A*B=e 
+
+\begin{flushleft} Normalmente el numero inverso tiende a ser 1/a excluyendo a=0, para que su multiplicacion resulte el elemento neutro.Entonces:\end{flushleft}
+
+B= 1/a+bi ;  B \neq 0
+
+\end{document}
